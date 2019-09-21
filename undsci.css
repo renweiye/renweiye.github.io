@@ -1,0 +1,99 @@
+body, html {
+    padding: 0px 0px 0px 0px;
+    font-family: Verdana, sans-serif;;
+    font-size: 100%;
+  }
+h2{text-align: center;}
+* {
+  box-sizing: border-box;
+  width: auto;
+ 
+}
+
+.header{
+background-color:#e5e5e5;
+padding:5px;
+text-align:center;
+}
+
+.main {
+  margin: auto;
+  width:40%;
+  padding:0 20px;
+}
+
+img.left{
+float: left;
+padding: 5px;
+margin-right: 5px;
+max-width: 100%;
+}
+
+img.center {
+display: block;
+margin-left: auto;
+margin-right: auto;
+max-width: 100%;
+}
+
+div.floatright {
+    float: right;
+    margin: 0 0 5px 8px;
+    padding: 5px;
+    border: 0px solid black;
+    font-style: italic;
+    text-align: center;
+}
+.row {width: 90%; margin:auto}
+.column {
+    float: left;
+    width: 48%;
+    padding: 5px;
+}
+.column3{float: left; width: 32%; padding: 5px;}
+
+/* Clearfix (clear floats) */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.story{color: purple; font-size: 0.8em; }
+blockquote{font-style: italic}
+figure{
+  display: table;
+}
+figure img{
+  width: 100%;
+}
+figure figcaption{
+    display: table-caption;
+  text-align: left;
+  caption-side: bottom;
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+div.desc {
+    width: 100%;
+    padding: 5px;
+    font-size: 0.8em;
+    font-style: italic;
+    text-align: center;
+}
+
+div.foot {
+    background-color:#e5e5e5;
+    text-align: center;
+    padding:10px;
+    margin-top:7px;}
+li{margin:10px 0;}
+ul.checked {
+    list-style-image: url('pics/checked.gif')}
+
+@media only screen and (max-width:620px) {
+  /* For mobile phones: */
+  .menu, .main, .right, .column {
+    width:100%;
+  }
+}
