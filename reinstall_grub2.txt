@@ -44,9 +44,12 @@ dpkg-reconfigure grub-pc
 
     METHOD 3 - CHROOT
 
-    This method of installation uses the chroot command to gain access to the broken system's files. Once the chroot command is issued, the LiveCD treats the broken system's / as its own. Commands run in a chroot environment will affect the broken systems filesystems and not those of the LiveCD.
+    This method of installation uses the chroot command to gain access to the broken system's files. 
+    Once the chroot command is issued, the LiveCD treats the broken system's / as its own. 
+    Commands run in a chroot environment will affect the broken systems filesystems and not those of the LiveCD.
 
-        Boot to the LiveCD Desktop (Ubuntu 9.10 or later). Please note that the Live CD must be the same as the system you are fixing - either 32-bit or 64-bit (if not then the chroot will fail).
+        Boot to the LiveCD Desktop (Ubuntu 9.10 or later). Please note that the Live CD must be the same as 
+        the system you are fixing - either 32-bit or 64-bit (if not then the chroot will fail).
 
         Open a terminal (Applications > Accessories > Terminal).
 
