@@ -1,0 +1,125 @@
+
+
+Boot from Ubuntu installation media.
+
+Select Try Ubuntu without installing.
+
+Step 1 : Reinstall the Ubuntu GRUB boot loader.
+
+Open a terminal and execute :
+
+sudo mount /dev/sda2 /mnt
+sudo mount /dev/sda1 /mnt/boot/efi
+for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
+sudo chroot /mnt
+grub-install /dev/sda
+update-grub  
+exit
+
+Step 2 : Correct the UUID entries in the fstab file.
+
+Open another terminal and execute :
+
+sudo blkid  
+
+Open another terminal and execute :
+
+sudo gedit /mnt/etc/fstab
+
+Replace the UUID entries of sda1 | sda2 | sda3 | sda4
+
+with those of the output given from the blkid command.
+
+Close all terminals and reboot into Ubuntu operating system.
+
+--------------------
+
+sudo -s
+for f in dev dev/pts proc ; do mount --bind /$f /media/whatever/$f ; done
+chroot /media/whatever
+dpkg-reconfigure grub-pc
+
+------------------------------
+
+
+    METHOD 3 - CHROOT
+
+    This method of installation uses the chroot command to gain access to the broken system's files. Once the chroot command is issued, the LiveCD treats the broken system's / as its own. Commands run in a chroot environment will affect the broken systems filesystems and not those of the LiveCD.
+
+        Boot to the LiveCD Desktop (Ubuntu 9.10 or later). Please note that the Live CD must be the same as the system you are fixing - either 32-bit or 64-bit (if not then the chroot will fail).
+
+        Open a terminal (Applications > Accessories > Terminal).
+
+        Determine your normal system partition - (the switch is a lowercase "L")
+
+        sudo fdisk -l
+
+        If you aren't sure, run
+
+        df -Th  
+
+        Look for the correct disk size and ext3 or ext4 format.
+
+        Mount your normal system partition:
+
+        Substitute the correct partition: sda1, sdb5, etc.
+
+        sudo mount /dev/sdXX /mnt  
+
+        Example: sudo mount /dev/sda1 /mnt
+
+        Only if you have a separate boot partition: sdYY is the /boot partition designation (for example sdb3)
+
+        sudo mount /dev/sdYY /mnt/boot
+
+        Mount the critical virtual filesystems:
+
+        sudo mount --bind /dev /mnt/dev
+        sudo mount --bind /dev/pts /mnt/dev/pts
+        sudo mount --bind /proc /mnt/proc
+        sudo mount --bind /sys /mnt/sys
+
+        Chroot into your normal system device:
+
+        sudo chroot /mnt
+
+        If there is no /boot/grub/grub.cfg or it's not correct, create one using
+
+        update-grub
+
+        Reinstall GRUB 2:
+
+        Substitute the correct device - sda, sdb, etc. Do not specify a partition number.
+
+        grub-install /dev/sdX
+
+        Verify the install (use the correct device, for example sda. Do not specify a partition):
+
+        sudo grub-install --recheck /dev/sdX
+
+        Exit chroot: CTRL-D on keyboard
+
+        Unmount virtual filesystems:
+
+        sudo umount /mnt/dev/pts
+        sudo umount /mnt/dev
+        sudo umount /mnt/proc
+        sudo umount /mnt/sys
+
+        If you mounted a separate /boot partition:
+
+        sudo umount /mnt/boot
+
+        Unmount the LiveCD's /usr directory:
+
+        sudo umount /mnt/usr
+
+        Unmount last device:
+
+        sudo umount /mnt
+
+        Reboot.
+
+        sudo reboot
+
+
