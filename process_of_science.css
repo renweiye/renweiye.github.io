@@ -6,16 +6,16 @@ body {
 margin: 0;
 	padding: 0;	
     line-height: 1.5em;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #000000;
+    font-family: sans-serif;
+    #background-color: #000000;
 }
 
 /* Style the header */
 header {
-    background-color: #230A39;
-    padding: 10px;
+    background-color: #2C2D2D;
+    #padding: 10px;
     color: white;
-    border-bottom: 1px solid lightblue;
+    border-bottom: 5px solid #0485A9;
 }
 
 /* Container for flexboxes */
@@ -26,6 +26,8 @@ header {
     display: flex;
     align-items: center;
 }
+.headerleft{flex: 2; font-size: 24px;}
+.headerhome{flex: 1; text-align: right;}
 
 section {
 	width: 70%;
@@ -39,7 +41,7 @@ nav {
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    background:  #000000 ;
+    #background:  #000000 ;
     padding: 10px;
 }
 
@@ -47,7 +49,7 @@ nav {
 nav ul {
     list-style-type: none;
     padding: 10px;
-    border: 1px solid purple;
+    #border: 1px solid purple;
 }
 nav ul li{
 	font-size: 1.2em;
@@ -57,21 +59,21 @@ nav ul li{
 
 nav ul li ul {border: 0;}
 nav ul li li {
-color: orange;
+#color: orange;
  border: 0px;
  font-size: 0.8em;
 }
 
 nav ul li a{
-    color: orange;
+    #color: orange;
     text-decoration: none;
     }
 
-a.how, a.peer, a.utilizing, a.understanding, a.using, a.statistics, a.uncertainty, a.data, a.modeling, a.comparison, a.description, a.experimentation, a.practice, a.creativity, a.controversy, a.theories, a.institutions, a.ethics, a.community, a.nature, a.process{color:aqua;}
+a.how, a.peer, a.utilizing, a.understanding, a.using, a.statistics, a.uncertainty, a.data, a.modeling, a.comparison, a.description, a.experimentation, a.practice, a.creativity, a.controversy, a.theories, a.institutions, a.ethics, a.community, a.nature, a.process{color:red;}
 
 nav ul li a:hover, nav ul li a:active{
-	text-decoration: none;
-	color: aqua;
+	text-decoration: underline;
+	color: red;
 }
 
 
@@ -81,24 +83,23 @@ article {
     -webkit-flex: 3;
     -ms-flex: 3;
     flex: 3;
-    background-color: black;
-    color: #f5b041 ;
+    #background-color: black;
+    #color: #f5b041 ;
     padding: 10px;
 }
-article h3{ font-family: Courier; font-size: 1.2em; text-align: center;	}
-article h4{ font-family: Impact; font-size: 1.2em; text-align: center;	}
+article h3{ font-family: Courier; font-size: 1.2em; text-align: center; color: purple;	}
+article h4{ font-family: Impact; font-size: 1.2em; text-align: center;	color: red; }
 article h2{font-size: 1.5em;}
 article h1{font-size: 2em; line-height: 1.2em;}
-.headerleft{flex: 2; font-size: 24px;}
-.headerhome{flex: 1; text-align: right;}
-.didyouknow{border: 3px solid green; padding: 0 10px;}
+.didyouknow{border: 1px solid lightblue; padding: 0 10px; background-color: #D2E5E9}
+.didyouknow h2{border-bottom: 1px solid grey; padding-bottom: 5px;}
 .readingbar{font-size: 2em; margin:10px}
 .responsive{max-width: 100%; height: auto}
 .checkpoint{border:1px dashed red; padding: 10px}
 div.floatleft {padding: 5px; float: left; margin: 5px 8px 5px 0; max-width: 100%}
 div.center{margin: 10px auto; max-width: 100% } 
 div.floatright {padding: 0px; float: right; max-width: 100%} 
-div.desc {width: 100%; padding: 5px; font-size: 0.8em; font-style: italic; text-align: left; line-height: 1em;}
+div.desc {width: 100%; padding: 5px; font-size: 0.8em; font-style: italic; text-align: left; line-height: 1.5em;}
 figure{ display: table; }
 figure img{ width: 100%; }
 figcaption{ display: table-caption; caption-side: bottom; font-size: 0.8em; font-style: italic; padding: 8px 4px; }
@@ -121,11 +122,15 @@ footer {
 
 /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
 @media (max-width: 720px) {
-    section, .headersection {
+    .headersection {
       -webkit-flex-direction: column;
       flex-direction: column;
       width: 100%;
+      height: auto;
+      padding-bottom: 30px;
     }
+    section{-webkit-flex-direction: column;
+      flex-direction: column-reverse;
+      width: 100%;}
     h1{font-size: 0.8em; line-height: 1.2em}
-    .headerhome{float: right; margin:auto}
-}
+    }
